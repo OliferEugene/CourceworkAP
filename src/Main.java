@@ -65,23 +65,42 @@ public class Main {
         }
     }
     public static void showScheldude() {
+        int trainsOptions = 0;
+        int busesOptions = 0;
         System.out.println(" ");
         System.out.println("Поїзди:");
         for (int i = (time * 100); i <= 2359; i++) {
             if (Trains.containsKey(i)) {
+                trainsOptions++;
                 System.out.println(Trains.get(i));
             }
+        }
+        if (trainsOptions == 0) {
+            System.out.println("Нажаль зараз немає можливості відправитися поїздом.");
         }
         System.out.println(" ");
         System.out.println("Автобуси:");
         for (int i = (time * 100); i <= 2359; i++) {
             if (Buses.containsKey(i)) {
+                busesOptions++;
                 System.out.println(Buses.get(i));
             }
         }
+        if (busesOptions == 0) {
+            System.out.println("Нажаль зараз немає можливості відправитися автобусом.");
+        }
+    }
+    public static void showInfo(){
+        System.out.println("================================================================================================\n" +
+                "|| Курсова робота з дисципліни Алгоритмізація та програмування                                ||\n" +
+                "|| Розробив: ст.гр. ІТ-21 Оліференко Євгеній                                                  ||\n" +
+                "|| Керівник курсової роботи: доц. каф. ІСТ Луб П.М.                                           ||\n" +
+                "|| Тема: система підтримки прийняття рішень при плануванні маршруту зі Львова в Ів.Франківськ ||\n" +
+                "================================================================================================");
     }
 
     public static void main (String[] args){
+        Main.showInfo();
         Main.fillTrainsScheldude();
         Main.fillBusesScheldude();
         Main.getTime();
